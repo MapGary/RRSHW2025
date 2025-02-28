@@ -9,14 +9,19 @@ package org.rrs.hw_9;
 чтобы было удобно создавать эти объекты.
 Класс должен иметь метод - getSalary(Month[] monthArray), метод возвращает
 зарплату за те месяцы которые были переданы в качестве аргумента.
+
+Задача №3 - продолжение
+В классе Employee создать метод convertToManager(int numberOfSubordinates).
+Этот метод создаст и вернет объект типа Manager с теми же личными данными,
+что были у Employee, и запишет переданное в него количество подчиненных.
 */
 
 public class Employee {
 
-    String employeeName;
-    int age;
-    String gender;
-    double salaryPerDay;
+    private final String employeeName;
+    private int age;
+    private String gender;
+    private final double salaryPerDay;
 
     public double getSalary(Month[] monthArray) {
 
@@ -27,4 +32,36 @@ public class Employee {
         return salary;
     }
 
+    public Manager convertToManager(int numberOfSubordinates) {
+        return new Manager(employeeName, age, gender, salaryPerDay, numberOfSubordinates);
+    }
+
+    public Employee(String employeeName, double salaryPerDay) {
+        this.employeeName = employeeName;
+        this.salaryPerDay = salaryPerDay;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public double getSalaryPerDay() {
+        return salaryPerDay;
+    }
 }

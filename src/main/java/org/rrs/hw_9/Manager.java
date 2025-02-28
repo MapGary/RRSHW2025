@@ -8,18 +8,15 @@ package org.rrs.hw_9;
 Класс должен иметь метод - getSalary(Month[] monthArray), метод возвращает зарплату
 за те месяцы которые были переданы в качестве аргумента.
 К рассчитанной ЗП должно прибавляться по 1% за каждого подчиненного.
-В классе Employee создать метод convertToManager(int numberOfSubordinates).
-Этот метод создаст и вернет объект типа Manager с теми же личными данными,
-что были у Employee, и запишет переданное в него количество подчиненных.
 */
 
 public class Manager {
 
-    String managerName;
-    int ageManager;
-    String genderManager;
-    double salaryManagerPerDay;
-    int employees;
+    private final String managerName;
+    private final int ageManager;
+    private final String genderManager;
+    private final double salaryManagerPerDay;
+    private final int employees;
 
     public double getSalary(Month[] monthArray) {
         double salary = 0;
@@ -27,5 +24,33 @@ public class Manager {
             salary += monthArray[i].getWorkDays() * salaryManagerPerDay;
         }
         return salary + ((salary * 10 / 100) * employees);
+    }
+
+    public Manager(String managerName, int ageManager, String genderManager, double salaryManagerPerDay, int employees) {
+        this.managerName = managerName;
+        this.ageManager = ageManager;
+        this.genderManager = genderManager;
+        this.salaryManagerPerDay = salaryManagerPerDay;
+        this.employees = employees;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public int getAgeManager() {
+        return ageManager;
+    }
+
+    public String getGenderManager() {
+        return genderManager;
+    }
+
+    public double getSalaryManagerPerDay() {
+        return salaryManagerPerDay;
+    }
+
+    public int getEmployees() {
+        return employees;
     }
 }
