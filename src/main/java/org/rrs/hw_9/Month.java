@@ -5,14 +5,29 @@ package org.rrs.hw_9;
 Создать неизменяемый (immutable) класс Month с полями: имя месяца,
 количеством дней и количеством рабочих дней. Поля должны быть спрятаны,
 для каждого поля создать getter.
-Создать класс MonthUtils который бы хранил подготовленные месяцы
-или их массивы для использования (объекты класса Month).
 */
 
-public class Month {
+public final class Month {
 
-    String monthName;
-    int days;
-    int workDays;
+    private final String monthName;
+    private final int days;
+    private final int workDays;
 
+    public Month(String monthName, int days, int workDays) {
+        this.monthName = monthName;
+        this.days = days;
+        this.workDays = workDays;
+    }
+
+    public String getMonthName() {
+        return monthName;
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public int getWorkDays() {
+        return workDays;
+    }
 }
